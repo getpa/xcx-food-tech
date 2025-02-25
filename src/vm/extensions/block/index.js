@@ -128,8 +128,8 @@ class ExtensionBlocks {
     }
 
     async prepareTapo(){
-        const login = 'http://'+window.location.host+'tapo/login';
-        const actionBase = 'http://'+window.location.host+'tapo/actions/p110m/'; // ここにAPIのエンドポイントを記述
+        const login = 'http://'+window.location.host+'/tapo/login';
+        const actionBase = 'http://'+window.location.host+'/tapo/actions/p110m/'; // ここにAPIのエンドポイントを記述
   
         try {
             const response = await fetch(login, {

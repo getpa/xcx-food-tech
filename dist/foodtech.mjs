@@ -1265,8 +1265,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         return _regeneratorRuntime.wrap(function _callee3$(_context3) {
           while (1) switch (_context3.prev = _context3.next) {
             case 0:
-              login = 'http://' + window.location.host + 'tapo/login';
-              actionBase = 'http://' + window.location.host + 'tapo/actions/p110m/'; // ここにAPIのエンドポイントを記述
+              login = 'http://' + window.location.host + '/tapo/login';
+              actionBase = 'http://' + window.location.host + '/tapo/actions/p110m/'; // ここにAPIのエンドポイントを記述
               _context3.prev = 2;
               _context3.next = 5;
               return fetch(login, {
