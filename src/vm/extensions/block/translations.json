@@ -1,0 +1,14 @@
+{
+  "en": {
+    "foodtech.name": "FoodTech",
+    "foodtech.doIt": "do it [SCRIPT]"
+  },
+  "ja": {
+    "foodtech.name": "FoodTech",
+    "foodtech.doIt": "[SCRIPT] を実行する"
+  },
+  "ja-Hira": {
+    "foodtech.name": "FoodTech",
+    "foodtech.doIt": "[SCRIPT] をじっこうする"
+  }
+}

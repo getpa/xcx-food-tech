@@ -1,0 +1,14 @@
+{
+  "en": {
+    "foodtech.entry.name": "FoodTech",
+    "foodtech.entry.description": "Description of this extension"
+  },
+  "ja": {
+    "foodtech.entry.name": "FoodTech",
+    "foodtech.entry.description": "拡張機能の説明"
+  },
+  "ja-Hira": {
+    "foodtech.entry.name": "FoodTech",
+    "foodtech.entry.description": "かくちょうきのうのせつめい"
+  }
+}
