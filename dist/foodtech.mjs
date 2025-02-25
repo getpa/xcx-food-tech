@@ -1217,7 +1217,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       return _regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
-            IPADDRESS = 'http://localhost:8601/esphome/sensor/temperature'; // ここにAPIのエンドポイントを記述
+            IPADDRESS = 'http://' + window.location.host + '/esphome/sensor/temperature'; // ここにAPIのエンドポイントを記述
             _context.prev = 1;
             _context.next = 4;
             return fetch(IPADDRESS, {
@@ -1265,8 +1265,8 @@ var ExtensionBlocks = /*#__PURE__*/function () {
         return _regeneratorRuntime.wrap(function _callee3$(_context3) {
           while (1) switch (_context3.prev = _context3.next) {
             case 0:
-              login = 'http://localhost:8601/tapo/login';
-              actionBase = 'http://localhost:8601/tapo/actions/p110m/'; // ここにAPIのエンドポイントを記述
+              login = 'http://' + window.location.host + 'tapo/login';
+              actionBase = 'http://' + window.location.host + 'tapo/actions/p110m/'; // ここにAPIのエンドポイントを記述
               _context3.prev = 2;
               _context3.next = 5;
               return fetch(login, {
