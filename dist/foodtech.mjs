@@ -91,46 +91,55 @@ function _asyncToGenerator(n) {
   };
 }
 
-function _classCallCheck(a, n) {
+function _classCallCheck$1(a, n) {
   if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function");
 }
 
-function _typeof$1(o) {
+function _typeof$2(o) {
   "@babel/helpers - typeof";
 
-  return _typeof$1 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
+  return _typeof$2 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
     return typeof o;
   } : function (o) {
     return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
-  }, _typeof$1(o);
+  }, _typeof$2(o);
 }
 
-function toPrimitive(t, r) {
-  if ("object" != _typeof$1(t) || !t) return t;
+function toPrimitive$1(t, r) {
+  if ("object" != _typeof$2(t) || !t) return t;
   var e = t[Symbol.toPrimitive];
   if (void 0 !== e) {
     var i = e.call(t, r);
-    if ("object" != _typeof$1(i)) return i;
+    if ("object" != _typeof$2(i)) return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
-  return (String )(t);
+  return ("string" === r ? String : Number)(t);
 }
 
-function toPropertyKey(t) {
-  var i = toPrimitive(t, "string");
-  return "symbol" == _typeof$1(i) ? i : i + "";
+function toPropertyKey$1(t) {
+  var i = toPrimitive$1(t, "string");
+  return "symbol" == _typeof$2(i) ? i : i + "";
 }
 
-function _defineProperties(e, r) {
+function _defineProperties$1(e, r) {
   for (var t = 0; t < r.length; t++) {
     var o = r[t];
-    o.enumerable = o.enumerable || false, o.configurable = true, "value" in o && (o.writable = true), Object.defineProperty(e, toPropertyKey(o.key), o);
+    o.enumerable = o.enumerable || false, o.configurable = true, "value" in o && (o.writable = true), Object.defineProperty(e, toPropertyKey$1(o.key), o);
   }
 }
-function _createClass(e, r, t) {
-  return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", {
+function _createClass$1(e, r, t) {
+  return r && _defineProperties$1(e.prototype, r), t && _defineProperties$1(e, t), Object.defineProperty(e, "prototype", {
     writable: false
   }), e;
+}
+
+function _defineProperty(e, r, t) {
+  return (r = toPropertyKey$1(r)) in e ? Object.defineProperty(e, r, {
+    value: t,
+    enumerable: true,
+    configurable: true,
+    writable: true
+  }) : e[r] = t, e;
 }
 
 function getDefaultExportFromCjs (x) {
@@ -139,11 +148,11 @@ function getDefaultExportFromCjs (x) {
 
 var regeneratorRuntime$1 = {exports: {}};
 
-var _typeof = {exports: {}};
+var _typeof$1 = {exports: {}};
 
 var hasRequired_typeof;
 function require_typeof() {
-  if (hasRequired_typeof) return _typeof.exports;
+  if (hasRequired_typeof) return _typeof$1.exports;
   hasRequired_typeof = 1;
   (function (module) {
     function _typeof(o) {
@@ -156,8 +165,8 @@ function require_typeof() {
       }, module.exports.__esModule = true, module.exports["default"] = module.exports, _typeof(o);
     }
     module.exports = _typeof, module.exports.__esModule = true, module.exports["default"] = module.exports;
-  })(_typeof);
-  return _typeof.exports;
+  })(_typeof$1);
+  return _typeof$1.exports;
 }
 
 var hasRequiredRegeneratorRuntime;
@@ -488,7 +497,7 @@ function requireRegenerator() {
   try {
     regeneratorRuntime = runtime;
   } catch (accidentalStrictMode) {
-    if ((typeof globalThis === "undefined" ? "undefined" : _typeof$1(globalThis)) === "object") {
+    if ((typeof globalThis === "undefined" ? "undefined" : _typeof$2(globalThis)) === "object") {
       globalThis.regeneratorRuntime = runtime;
     } else {
       Function("r", "regeneratorRuntime = r")(runtime);
@@ -552,6 +561,610 @@ function requireBlockType() {
 
 var blockTypeExports = requireBlockType();
 var BlockType = /*@__PURE__*/getDefaultExportFromCjs(blockTypeExports);
+
+/**
+ * Block argument types
+ * @enum {string}
+ */
+var argumentType;
+var hasRequiredArgumentType;
+function requireArgumentType() {
+  if (hasRequiredArgumentType) return argumentType;
+  hasRequiredArgumentType = 1;
+  var ArgumentType = {
+    /**
+     * Numeric value with angle picker
+     */
+    ANGLE: 'angle',
+    /**
+     * Boolean value with hexagonal placeholder
+     */
+    BOOLEAN: 'Boolean',
+    /**
+     * Numeric value with color picker
+     */
+    COLOR: 'color',
+    /**
+     * Numeric value with text field
+     */
+    NUMBER: 'number',
+    /**
+     * String value with text field
+     */
+    STRING: 'string',
+    /**
+     * String value with matrix field
+     */
+    MATRIX: 'matrix',
+    /**
+     * MIDI note number with note picker (piano) field
+     */
+    NOTE: 'note',
+    /**
+     * Inline image on block (as part of the label)
+     */
+    IMAGE: 'image'
+  };
+  argumentType = ArgumentType;
+  return argumentType;
+}
+
+var argumentTypeExports = requireArgumentType();
+var ArgumentType = /*@__PURE__*/getDefaultExportFromCjs(argumentTypeExports);
+
+function _classCallCheck(a, n) {
+  if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function");
+}
+
+function _typeof(o) {
+  "@babel/helpers - typeof";
+
+  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
+    return typeof o;
+  } : function (o) {
+    return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+  }, _typeof(o);
+}
+
+function toPrimitive(t, r) {
+  if ("object" != _typeof(t) || !t) return t;
+  var e = t[Symbol.toPrimitive];
+  if (void 0 !== e) {
+    var i = e.call(t, r);
+    if ("object" != _typeof(i)) return i;
+    throw new TypeError("@@toPrimitive must return a primitive value.");
+  }
+  return (String )(t);
+}
+
+function toPropertyKey(t) {
+  var i = toPrimitive(t, "string");
+  return "symbol" == _typeof(i) ? i : i + "";
+}
+
+function _defineProperties(e, r) {
+  for (var t = 0; t < r.length; t++) {
+    var o = r[t];
+    o.enumerable = o.enumerable || false, o.configurable = true, "value" in o && (o.writable = true), Object.defineProperty(e, toPropertyKey(o.key), o);
+  }
+}
+function _createClass(e, r, t) {
+  return t && _defineProperties(e, t), Object.defineProperty(e, "prototype", {
+    writable: false
+  }), e;
+}
+
+var color;
+var hasRequiredColor$1;
+function requireColor$1() {
+  if (hasRequiredColor$1) return color;
+  hasRequiredColor$1 = 1;
+  var Color = /*#__PURE__*/function () {
+    function Color() {
+      _classCallCheck(this, Color);
+    }
+    return _createClass(Color, null, [{
+      key: "RGB_BLACK",
+      get:
+      /**
+       * @typedef {object} RGBObject - An object representing a color in RGB format.
+       * @property {number} r - the red component, in the range [0, 255].
+       * @property {number} g - the green component, in the range [0, 255].
+       * @property {number} b - the blue component, in the range [0, 255].
+       */
+
+      /**
+       * @typedef {object} HSVObject - An object representing a color in HSV format.
+       * @property {number} h - hue, in the range [0-359).
+       * @property {number} s - saturation, in the range [0,1].
+       * @property {number} v - value, in the range [0,1].
+       */
+
+      /** @type {RGBObject} */
+      function get() {
+        return {
+          r: 0,
+          g: 0,
+          b: 0
+        };
+      }
+
+      /** @type {RGBObject} */
+    }, {
+      key: "RGB_WHITE",
+      get: function get() {
+        return {
+          r: 255,
+          g: 255,
+          b: 255
+        };
+      }
+
+      /**
+       * Convert a Scratch decimal color to a hex string, #RRGGBB.
+       * @param {number} decimal RGB color as a decimal.
+       * @return {string} RGB color as #RRGGBB hex string.
+       */
+    }, {
+      key: "decimalToHex",
+      value: function decimalToHex(decimal) {
+        if (decimal < 0) {
+          decimal += 0xFFFFFF + 1;
+        }
+        var hex = Number(decimal).toString(16);
+        hex = "#".concat('000000'.substr(0, 6 - hex.length)).concat(hex);
+        return hex;
+      }
+
+      /**
+       * Convert a Scratch decimal color to an RGB color object.
+       * @param {number} decimal RGB color as decimal.
+       * @return {RGBObject} rgb - {r: red [0,255], g: green [0,255], b: blue [0,255]}.
+       */
+    }, {
+      key: "decimalToRgb",
+      value: function decimalToRgb(decimal) {
+        var a = decimal >> 24 & 0xFF;
+        var r = decimal >> 16 & 0xFF;
+        var g = decimal >> 8 & 0xFF;
+        var b = decimal & 0xFF;
+        return {
+          r: r,
+          g: g,
+          b: b,
+          a: a > 0 ? a : 255
+        };
+      }
+
+      /**
+       * Convert a hex color (e.g., F00, #03F, #0033FF) to an RGB color object.
+       * CC-BY-SA Tim Down:
+       * https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+       * @param {!string} hex Hex representation of the color.
+       * @return {RGBObject} null on failure, or rgb: {r: red [0,255], g: green [0,255], b: blue [0,255]}.
+       */
+    }, {
+      key: "hexToRgb",
+      value: function hexToRgb(hex) {
+        var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+        hex = hex.replace(shorthandRegex, function (m, r, g, b) {
+          return r + r + g + g + b + b;
+        });
+        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        return result ? {
+          r: parseInt(result[1], 16),
+          g: parseInt(result[2], 16),
+          b: parseInt(result[3], 16)
+        } : null;
+      }
+
+      /**
+       * Convert an RGB color object to a hex color.
+       * @param {RGBObject} rgb - {r: red [0,255], g: green [0,255], b: blue [0,255]}.
+       * @return {!string} Hex representation of the color.
+       */
+    }, {
+      key: "rgbToHex",
+      value: function rgbToHex(rgb) {
+        return Color.decimalToHex(Color.rgbToDecimal(rgb));
+      }
+
+      /**
+       * Convert an RGB color object to a Scratch decimal color.
+       * @param {RGBObject} rgb - {r: red [0,255], g: green [0,255], b: blue [0,255]}.
+       * @return {!number} Number representing the color.
+       */
+    }, {
+      key: "rgbToDecimal",
+      value: function rgbToDecimal(rgb) {
+        return (rgb.r << 16) + (rgb.g << 8) + rgb.b;
+      }
+
+      /**
+      * Convert a hex color (e.g., F00, #03F, #0033FF) to a decimal color number.
+      * @param {!string} hex Hex representation of the color.
+      * @return {!number} Number representing the color.
+      */
+    }, {
+      key: "hexToDecimal",
+      value: function hexToDecimal(hex) {
+        return Color.rgbToDecimal(Color.hexToRgb(hex));
+      }
+
+      /**
+       * Convert an HSV color to RGB format.
+       * @param {HSVObject} hsv - {h: hue [0,360), s: saturation [0,1], v: value [0,1]}
+       * @return {RGBObject} rgb - {r: red [0,255], g: green [0,255], b: blue [0,255]}.
+       */
+    }, {
+      key: "hsvToRgb",
+      value: function hsvToRgb(hsv) {
+        var h = hsv.h % 360;
+        if (h < 0) h += 360;
+        var s = Math.max(0, Math.min(hsv.s, 1));
+        var v = Math.max(0, Math.min(hsv.v, 1));
+        var i = Math.floor(h / 60);
+        var f = h / 60 - i;
+        var p = v * (1 - s);
+        var q = v * (1 - s * f);
+        var t = v * (1 - s * (1 - f));
+        var r;
+        var g;
+        var b;
+        switch (i) {
+          default:
+          case 0:
+            r = v;
+            g = t;
+            b = p;
+            break;
+          case 1:
+            r = q;
+            g = v;
+            b = p;
+            break;
+          case 2:
+            r = p;
+            g = v;
+            b = t;
+            break;
+          case 3:
+            r = p;
+            g = q;
+            b = v;
+            break;
+          case 4:
+            r = t;
+            g = p;
+            b = v;
+            break;
+          case 5:
+            r = v;
+            g = p;
+            b = q;
+            break;
+        }
+        return {
+          r: Math.floor(r * 255),
+          g: Math.floor(g * 255),
+          b: Math.floor(b * 255)
+        };
+      }
+
+      /**
+       * Convert an RGB color to HSV format.
+       * @param {RGBObject} rgb - {r: red [0,255], g: green [0,255], b: blue [0,255]}.
+       * @return {HSVObject} hsv - {h: hue [0,360), s: saturation [0,1], v: value [0,1]}
+       */
+    }, {
+      key: "rgbToHsv",
+      value: function rgbToHsv(rgb) {
+        var r = rgb.r / 255;
+        var g = rgb.g / 255;
+        var b = rgb.b / 255;
+        var x = Math.min(Math.min(r, g), b);
+        var v = Math.max(Math.max(r, g), b);
+
+        // For grays, hue will be arbitrarily reported as zero. Otherwise, calculate
+        var h = 0;
+        var s = 0;
+        if (x !== v) {
+          var f = r === x ? g - b : g === x ? b - r : r - g;
+          var i = r === x ? 3 : g === x ? 5 : 1;
+          h = (i - f / (v - x)) * 60 % 360;
+          s = (v - x) / v;
+        }
+        return {
+          h: h,
+          s: s,
+          v: v
+        };
+      }
+
+      /**
+       * Linear interpolation between rgb0 and rgb1.
+       * @param {RGBObject} rgb0 - the color corresponding to fraction1 <= 0.
+       * @param {RGBObject} rgb1 - the color corresponding to fraction1 >= 1.
+       * @param {number} fraction1 - the interpolation parameter. If this is 0.5, for example, mix the two colors equally.
+       * @return {RGBObject} the interpolated color.
+       */
+    }, {
+      key: "mixRgb",
+      value: function mixRgb(rgb0, rgb1, fraction1) {
+        if (fraction1 <= 0) return rgb0;
+        if (fraction1 >= 1) return rgb1;
+        var fraction0 = 1 - fraction1;
+        return {
+          r: fraction0 * rgb0.r + fraction1 * rgb1.r,
+          g: fraction0 * rgb0.g + fraction1 * rgb1.g,
+          b: fraction0 * rgb0.b + fraction1 * rgb1.b
+        };
+      }
+    }]);
+  }();
+  color = Color;
+  return color;
+}
+
+var cast;
+var hasRequiredCast;
+function requireCast() {
+  if (hasRequiredCast) return cast;
+  hasRequiredCast = 1;
+  var Color = requireColor$1();
+
+  /**
+   * @fileoverview
+   * Utilities for casting and comparing Scratch data-types.
+   * Scratch behaves slightly differently from JavaScript in many respects,
+   * and these differences should be encapsulated below.
+   * For example, in Scratch, add(1, join("hello", world")) -> 1.
+   * This is because "hello world" is cast to 0.
+   * In JavaScript, 1 + Number("hello" + "world") would give you NaN.
+   * Use when coercing a value before computation.
+   */
+  var Cast = /*#__PURE__*/function () {
+    function Cast() {
+      _classCallCheck(this, Cast);
+    }
+    return _createClass(Cast, null, [{
+      key: "toNumber",
+      value:
+      /**
+       * Scratch cast to number.
+       * Treats NaN as 0.
+       * In Scratch 2.0, this is captured by `interp.numArg.`
+       * @param {*} value Value to cast to number.
+       * @return {number} The Scratch-casted number value.
+       */
+      function toNumber(value) {
+        // If value is already a number we don't need to coerce it with
+        // Number().
+        if (typeof value === 'number') {
+          // Scratch treats NaN as 0, when needed as a number.
+          // E.g., 0 + NaN -> 0.
+          if (Number.isNaN(value)) {
+            return 0;
+          }
+          return value;
+        }
+        if (typeof value === 'string') {
+          // Replace full-width numbers with half-width ones.
+          value = value.replace(/[０-９＋．ｅ]/g, function (s) {
+            return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
+          });
+          value = value.replace(/[-－﹣−‐⁃‑‒–—﹘―⎯⏤ーｰ─━]/g, '-');
+        }
+        var n = Number(value);
+        if (Number.isNaN(n)) {
+          // Scratch treats NaN as 0, when needed as a number.
+          // E.g., 0 + NaN -> 0.
+          return 0;
+        }
+        return n;
+      }
+
+      /**
+       * Scratch cast to boolean.
+       * In Scratch 2.0, this is captured by `interp.boolArg.`
+       * Treats some string values differently from JavaScript.
+       * @param {*} value Value to cast to boolean.
+       * @return {boolean} The Scratch-casted boolean value.
+       */
+    }, {
+      key: "toBoolean",
+      value: function toBoolean(value) {
+        // Already a boolean?
+        if (typeof value === 'boolean') {
+          return value;
+        }
+        if (typeof value === 'string') {
+          // These specific strings are treated as false in Scratch.
+          if (value === '' || value === '0' || value.toLowerCase() === 'false') {
+            return false;
+          }
+          // All other strings treated as true.
+          return true;
+        }
+        // Coerce other values and numbers.
+        return Boolean(value);
+      }
+
+      /**
+       * Scratch cast to string.
+       * @param {*} value Value to cast to string.
+       * @return {string} The Scratch-casted string value.
+       */
+    }, {
+      key: "toString",
+      value: function toString(value) {
+        return String(value).replace(/\\n/g, '\n').replace(/\\t/g, '\t');
+      }
+
+      /**
+       * Cast any Scratch argument to an RGB color array to be used for the renderer.
+       * @param {*} value Value to convert to RGB color array.
+       * @return {Array.<number>} [r,g,b], values between 0-255.
+       */
+    }, {
+      key: "toRgbColorList",
+      value: function toRgbColorList(value) {
+        var color = Cast.toRgbColorObject(value);
+        return [color.r, color.g, color.b];
+      }
+
+      /**
+       * Cast any Scratch argument to an RGB color object to be used for the renderer.
+       * @param {*} value Value to convert to RGB color object.
+       * @return {RGBOject} [r,g,b], values between 0-255.
+       */
+    }, {
+      key: "toRgbColorObject",
+      value: function toRgbColorObject(value) {
+        var color;
+        if (typeof value === 'string' && value.substring(0, 1) === '#') {
+          color = Color.hexToRgb(value);
+
+          // If the color wasn't *actually* a hex color, cast to black
+          if (!color) color = {
+            r: 0,
+            g: 0,
+            b: 0,
+            a: 255
+          };
+        } else {
+          color = Color.decimalToRgb(Cast.toNumber(value));
+        }
+        return color;
+      }
+
+      /**
+       * Determine if a Scratch argument is a white space string (or null / empty).
+       * @param {*} val value to check.
+       * @return {boolean} True if the argument is all white spaces or null / empty.
+       */
+    }, {
+      key: "isWhiteSpace",
+      value: function isWhiteSpace(val) {
+        return val === null || typeof val === 'string' && val.trim().length === 0;
+      }
+
+      /**
+       * Compare two values, using Scratch cast, case-insensitive string compare, etc.
+       * In Scratch 2.0, this is captured by `interp.compare.`
+       * @param {*} v1 First value to compare.
+       * @param {*} v2 Second value to compare.
+       * @returns {number} Negative number if v1 < v2; 0 if equal; positive otherwise.
+       */
+    }, {
+      key: "compare",
+      value: function compare(v1, v2) {
+        var n1 = Number(v1);
+        var n2 = Number(v2);
+        if (n1 === 0 && Cast.isWhiteSpace(v1)) {
+          n1 = NaN;
+        } else if (n2 === 0 && Cast.isWhiteSpace(v2)) {
+          n2 = NaN;
+        }
+        if (isNaN(n1) || isNaN(n2)) {
+          // At least one argument can't be converted to a number.
+          // Scratch compares strings as case insensitive.
+          var s1 = Cast.toString(v1).toLowerCase();
+          var s2 = Cast.toString(v2).toLowerCase();
+          if (s1 < s2) {
+            return -1;
+          } else if (s1 > s2) {
+            return 1;
+          }
+          return 0;
+        }
+        // Handle the special case of Infinity
+        if (n1 === Infinity && n2 === Infinity || n1 === -Infinity && n2 === -Infinity) {
+          return 0;
+        }
+        // Compare as numbers.
+        return n1 - n2;
+      }
+
+      /**
+       * Determine if a Scratch argument number represents a round integer.
+       * @param {*} val Value to check.
+       * @return {boolean} True if number looks like an integer.
+       */
+    }, {
+      key: "isInt",
+      value: function isInt(val) {
+        // Values that are already numbers.
+        if (typeof val === 'number') {
+          if (isNaN(val)) {
+            // NaN is considered an integer.
+            return true;
+          }
+          // True if it's "round" (e.g., 2.0 and 2).
+          return val === parseInt(val, 10);
+        } else if (typeof val === 'boolean') {
+          // `True` and `false` always represent integer after Scratch cast.
+          return true;
+        } else if (typeof val === 'string') {
+          // If it contains a decimal point, don't consider it an int.
+          return val.indexOf('.') < 0;
+        }
+        return false;
+      }
+    }, {
+      key: "LIST_INVALID",
+      get: function get() {
+        return 'INVALID';
+      }
+    }, {
+      key: "LIST_ALL",
+      get: function get() {
+        return 'ALL';
+      }
+
+      /**
+       * Compute a 1-based index into a list, based on a Scratch argument.
+       * Two special cases may be returned:
+       * LIST_ALL: if the block is referring to all of the items in the list.
+       * LIST_INVALID: if the index was invalid in any way.
+       * @param {*} index Scratch arg, including 1-based numbers or special cases.
+       * @param {number} length Length of the list.
+       * @param {boolean} acceptAll Whether it should accept "all" or not.
+       * @return {(number|string)} 1-based index for list, LIST_ALL, or LIST_INVALID.
+       */
+    }, {
+      key: "toListIndex",
+      value: function toListIndex(index, length, acceptAll) {
+        if (typeof index !== 'number') {
+          if (index === 'all') {
+            return acceptAll ? Cast.LIST_ALL : Cast.LIST_INVALID;
+          }
+          if (index === 'last') {
+            if (length > 0) {
+              return length;
+            }
+            return Cast.LIST_INVALID;
+          } else if (index === 'random' || index === 'any') {
+            if (length > 0) {
+              return 1 + Math.floor(Math.random() * length);
+            }
+            return Cast.LIST_INVALID;
+          }
+        }
+        index = Math.floor(Cast.toNumber(index));
+        if (index < 1 || index > length) {
+          return Cast.LIST_INVALID;
+        }
+        return index;
+      }
+    }]);
+  }();
+  cast = Cast;
+  return cast;
+}
+
+var castExports = requireCast();
+var Cast = /*@__PURE__*/getDefaultExportFromCjs(castExports);
 
 var web = {exports: {}};
 
@@ -1131,18 +1744,19 @@ function requireWeb() {
   return web.exports;
 }
 
-var log;
+var log$1;
 var hasRequiredLog;
 function requireLog() {
-  if (hasRequiredLog) return log;
+  if (hasRequiredLog) return log$1;
   hasRequiredLog = 1;
   var minilog = requireWeb();
   minilog.enable();
-  log = minilog('vm');
-  return log;
+  log$1 = minilog('vm');
+  return log$1;
 }
 
-requireLog();
+var logExports = requireLog();
+var log = /*@__PURE__*/getDefaultExportFromCjs(logExports);
 
 var en = {
 	"foodtech.name": "FoodTech",
@@ -1200,8 +1814,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
    * @param {Runtime} runtime - the Scratch 3.0 runtime.
    */
   function ExtensionBlocks(runtime) {
-    var _this = this;
-    _classCallCheck(this, ExtensionBlocks);
+    _classCallCheck$1(this, ExtensionBlocks);
     /**
      * The Scratch 3.0 runtime.
      * @type {Runtime}
@@ -1211,64 +1824,22 @@ var ExtensionBlocks = /*#__PURE__*/function () {
       // Replace 'formatMessage' to a formatter which is used in the runtime.
       formatMessage = runtime.formatMessage;
     }
-    this.temperature = null;
-    setInterval(/*#__PURE__*/_asyncToGenerator(/*#__PURE__*/_regeneratorRuntime.mark(function _callee() {
-      var IPADDRESS, response, data;
-      return _regeneratorRuntime.wrap(function _callee$(_context) {
-        while (1) switch (_context.prev = _context.next) {
-          case 0:
-            IPADDRESS = 'http://' + window.location.host + '/esphome/sensor/temperature'; // ここにAPIのエンドポイントを記述
-            _context.prev = 1;
-            _context.next = 4;
-            return fetch(IPADDRESS, {
-              method: 'GET',
-              // または 'POST', 'PUT', 'DELETE' など
-              headers: {
-                'Content-Type': 'application/json'
-              }
-            });
-          case 4:
-            response = _context.sent;
-            if (response.ok) {
-              _context.next = 7;
-              break;
-            }
-            throw new Error("HTTP error! status: ".concat(response.status));
-          case 7:
-            _context.next = 9;
-            return response.json();
-          case 9:
-            data = _context.sent;
-            // JSONとしてレスポンスを受け取る
-            if (data.value) _this.temperature = data.value;
-            _context.next = 16;
-            break;
-          case 13:
-            _context.prev = 13;
-            _context.t0 = _context["catch"](1);
-            console.error('API呼び出しに失敗しました:', _context.t0);
-          case 16:
-          case "end":
-            return _context.stop();
-        }
-      }, _callee, null, [[1, 13]]);
-    })), 1000);
     this.prepareTapo().then(function () {
       return console.log("スマートプラグ準備完了");
     });
   }
-  return _createClass(ExtensionBlocks, [{
+  return _createClass$1(ExtensionBlocks, [{
     key: "prepareTapo",
     value: function () {
-      var _prepareTapo = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime.mark(function _callee3() {
+      var _prepareTapo = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime.mark(function _callee2() {
         var login, actionBase, response, sessionId;
-        return _regeneratorRuntime.wrap(function _callee3$(_context3) {
-          while (1) switch (_context3.prev = _context3.next) {
+        return _regeneratorRuntime.wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
             case 0:
               login = 'http://' + window.location.host + '/tapo/login';
-              actionBase = 'http://' + window.location.host + '/tapo/actions/p110m/'; // ここにAPIのエンドポイントを記述
-              _context3.prev = 2;
-              _context3.next = 5;
+              actionBase = 'http://' + window.location.host + '/tapo/actions/p105/'; // ここにAPIのエンドポイントを記述
+              _context2.prev = 2;
+              _context2.next = 5;
               return fetch(login, {
                 method: 'POST',
                 // または 'POST', 'PUT', 'DELETE' など
@@ -1278,69 +1849,73 @@ var ExtensionBlocks = /*#__PURE__*/function () {
                 body: '{ "password": "passwd" }'
               });
             case 5:
-              response = _context3.sent;
+              response = _context2.sent;
               if (response.ok) {
-                _context3.next = 8;
+                _context2.next = 8;
                 break;
               }
               throw new Error("HTTP error! status: ".concat(response.status));
             case 8:
-              _context3.next = 10;
+              _context2.next = 10;
               return response.text();
             case 10:
-              sessionId = _context3.sent;
+              sessionId = _context2.sent;
               // JSONとしてレスポンスを受け取る
 
               this.setDeviceStatus = /*#__PURE__*/function () {
-                var _ref2 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime.mark(function _callee2(status) {
-                  var _response;
-                  return _regeneratorRuntime.wrap(function _callee2$(_context2) {
-                    while (1) switch (_context2.prev = _context2.next) {
+                var _ref = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime.mark(function _callee(status) {
+                  var deviceSuffix,
+                    url,
+                    _response,
+                    _args = arguments;
+                  return _regeneratorRuntime.wrap(function _callee$(_context) {
+                    while (1) switch (_context.prev = _context.next) {
                       case 0:
-                        _context2.prev = 0;
-                        _context2.next = 3;
-                        return fetch(actionBase + status + "?device=smartplug", {
+                        deviceSuffix = _args.length > 1 && _args[1] !== undefined ? _args[1] : '';
+                        _context.prev = 1;
+                        url = "".concat(actionBase, "/").concat(status, "?device=smartplug").concat(deviceSuffix);
+                        _context.next = 5;
+                        return fetch(url, {
                           method: 'GET',
-                          // または 'POST', 'PUT', 'DELETE' など
                           headers: {
-                            'Authorization': 'Bearer ' + sessionId
+                            'Authorization': "Bearer ".concat(sessionId)
                           }
                         });
-                      case 3:
-                        _response = _context2.sent;
+                      case 5:
+                        _response = _context.sent;
                         if (_response.ok) {
-                          _context2.next = 6;
+                          _context.next = 8;
                           break;
                         }
                         throw new Error("HTTP error! status: ".concat(_response.status));
-                      case 6:
-                        _context2.next = 11;
-                        break;
                       case 8:
-                        _context2.prev = 8;
-                        _context2.t0 = _context2["catch"](0);
-                        console.error('API呼び出しに失敗しました:', _context2.t0);
-                      case 11:
+                        _context.next = 13;
+                        break;
+                      case 10:
+                        _context.prev = 10;
+                        _context.t0 = _context["catch"](1);
+                        log.error('Failed to call TAPO API:', _context.t0);
+                      case 13:
                       case "end":
-                        return _context2.stop();
+                        return _context.stop();
                     }
-                  }, _callee2, null, [[0, 8]]);
+                  }, _callee, null, [[1, 10]]);
                 }));
                 return function (_x) {
-                  return _ref2.apply(this, arguments);
+                  return _ref.apply(this, arguments);
                 };
               }();
-              _context3.next = 17;
+              _context2.next = 17;
               break;
             case 14:
-              _context3.prev = 14;
-              _context3.t0 = _context3["catch"](2);
-              console.error('API呼び出しに失敗しました:', _context3.t0);
+              _context2.prev = 14;
+              _context2.t0 = _context2["catch"](2);
+              console.error('API呼び出しに失敗しました:', _context2.t0);
             case 17:
             case "end":
-              return _context3.stop();
+              return _context2.stop();
           }
-        }, _callee3, this, [[2, 14]]);
+        }, _callee2, this, [[2, 14]]);
       }));
       function prepareTapo() {
         return _prepareTapo.apply(this, arguments);
@@ -1364,50 +1939,119 @@ var ExtensionBlocks = /*#__PURE__*/function () {
           opcode: 'reporter',
           blockType: BlockType.REPORTER,
           blockAllThreads: false,
-          text: formatMessage({
+          text: "".concat(formatMessage({
             id: 'foodtech.temp',
             default: 'temperature',
             description: 'temperature'
-          }),
+          }), " [DEVICE]"),
+          arguments: {
+            DEVICE: {
+              type: ArgumentType.STRING,
+              defaultValue: '100'
+            }
+          },
           func: 'getTemperature'
         }, {
           opcode: 'turnOn',
           blockType: BlockType.COMMAND,
           blockAllThreads: false,
-          text: formatMessage({
+          text: "".concat(formatMessage({
             id: 'foodtech.on',
             default: 'on',
             description: 'on'
-          }),
+          }), " [DEVICE]"),
+          arguments: {
+            DEVICE: {
+              type: ArgumentType.STRING,
+              defaultValue: '200'
+            }
+          },
           func: 'turnOn'
         }, {
           opcode: 'turnOff',
           blockType: BlockType.COMMAND,
           blockAllThreads: false,
-          text: formatMessage({
+          text: "".concat(formatMessage({
             id: 'foodtech.off',
             default: 'off',
             description: 'off'
-          }),
+          }), " [DEVICE]"),
+          arguments: {
+            DEVICE: {
+              type: ArgumentType.STRING,
+              defaultValue: '200'
+            }
+          },
           func: 'turnOff'
         }],
         menus: {}
       };
     }
+
+    /**
+     * Reporter block — reads a sensor value by suffix each time it is called.
+     * @param {object} args - {SUFFIX: string}
+     * @return {Promise<number|null>} Sensor value or null on error.
+     */
   }, {
     key: "getTemperature",
-    value: function getTemperature(args) {
-      return this.temperature;
-    }
+    value: function () {
+      var _getTemperature = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime.mark(function _callee3(args) {
+        var suffix, url, _data$value, response, data;
+        return _regeneratorRuntime.wrap(function _callee3$(_context3) {
+          while (1) switch (_context3.prev = _context3.next) {
+            case 0:
+              suffix = Cast.toString(args.SUFFIX || '');
+              url = "http://".concat(window.location.host, "/esphome").concat(suffix, "/sensor/temperature");
+              _context3.prev = 2;
+              _context3.next = 5;
+              return fetch(url, {
+                method: 'GET',
+                headers: {
+                  'Content-Type': 'application/json'
+                }
+              });
+            case 5:
+              response = _context3.sent;
+              if (response.ok) {
+                _context3.next = 8;
+                break;
+              }
+              throw new Error("HTTP error! status: ".concat(response.status));
+            case 8:
+              _context3.next = 10;
+              return response.json();
+            case 10:
+              data = _context3.sent;
+              __lastTemp = (_data$value = data.value) !== null && _data$value !== void 0 ? _data$value : __lastTemp;
+              return _context3.abrupt("return", __lastTemp);
+            case 15:
+              _context3.prev = 15;
+              _context3.t0 = _context3["catch"](2);
+              log.error('Failed to fetch sensor value:', _context3.t0);
+              return _context3.abrupt("return", null);
+            case 19:
+            case "end":
+              return _context3.stop();
+          }
+        }, _callee3, null, [[2, 15]]);
+      }));
+      function getTemperature(_x2) {
+        return _getTemperature.apply(this, arguments);
+      }
+      return getTemperature;
+    }()
   }, {
     key: "turnOn",
     value: function turnOn(args) {
-      this.setDeviceStatus("on");
+      var device = Cast.toString(args.DEVICE || '');
+      this.setDeviceStatus("on", device);
     }
   }, {
     key: "turnOff",
     value: function turnOff(args) {
-      this.setDeviceStatus("off");
+      var device = Cast.toString(args.DEVICE || '');
+      this.setDeviceStatus("off", device);
     }
   }], [{
     key: "formatMessage",
@@ -1463,6 +2107,7 @@ var ExtensionBlocks = /*#__PURE__*/function () {
     }
   }]);
 }();
+_defineProperty(ExtensionBlocks, "__lastTemp", -999);
 
 export { ExtensionBlocks as blockClass, entry };
 //# sourceMappingURL=foodtech.mjs.map
